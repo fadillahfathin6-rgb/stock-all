@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AkunMarket — Marketplace Akun Digital</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">🛒 Akun<span>Market</span></a>
+      <nav class="nav-links">
+        <a href="index.html" class="active">Katalog</a>
+        <a href="dashboard.html">Dashboard Penjual</a>
+      </nav>
+      <div class="nav-actions">
+        <input type="search" id="searchInput" placeholder="Cari akun..." class="search-box">
+        <button class="btn btn-primary">Masuk</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>Jual & Beli Akun Digital dengan <span>Aman</span></h1>
+      <p>Sistem escrow • Garansi 7 hari • Penjual terverifikasi</p>
+    </div>
+  </section>
+
+  <!-- FILTER KATEGORI -->
+  <section class="container">
+    <div class="filter-bar" id="filterBar">
+      <button class="chip active" data-cat="all">Semua</button>
+      <button class="chip" data-cat="game">🎮 Game</button>
+      <button class="chip" data-cat="streaming">🎬 Streaming</button>
+      <button class="chip" data-cat="sosmed">📱 Sosmed</button>
+      <button class="chip" data-cat="software">💻 Software</button>
+    </div>
+
+    <!-- GRID PRODUK -->
+    <div class="product-grid" id="productGrid">
+      <!-- diisi via JS -->
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 AkunMarket — Prototype. Jual beli akun tunduk pada ToS masing-masing platform.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
