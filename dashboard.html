@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Penjual — AkunMarket</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">🛒 Akun<span>Market</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Katalog</a>
+        <a href="dashboard.html" class="active">Dashboard Penjual</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container dashboard">
+    <h1>Dashboard Penjual</h1>
+    <p class="subtitle">Kelola stok akun Anda di sini.</p>
+
+    <!-- RINGKASAN -->
+    <div class="stats-row" id="statsRow"></div>
+
+    <!-- TABEL STOK -->
+    <div class="card">
+      <div class="card-head">
+        <h2>Kelola Stok: <span id="productName"></span></h2>
+        <button class="btn btn-primary" onclick="tambahStok()">+ Tambah Stok</button>
+      </div>
+      <table class="stock-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Detail Akun</th>
+            <th>Status</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="stockTableBody"></tbody>
+      </table>
+    </div>
+
+    <p class="note">📌 Stok berstatus <em>reserved</em> / <em>sold</em> terkunci dan tidak bisa diedit.</p>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

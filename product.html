@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Produk — AkunMarket</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">🛒 Akun<span>Market</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Katalog</a>
+        <a href="dashboard.html">Dashboard Penjual</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="productDetail">
+    <!-- diisi via JS -->
+  </main>
+
+  <script src="js/data.js"></script>
+  <script>
+    // Ambil ID dari URL ?id=1
+    const params = new URLSearchParams(location.search);
+    const id = parseInt(params.get('id'));
+    const produk = PRODUCTS.find(p => p.id === id);
+    const el = document.getElementById('productDetail');
+
+    if (!produk) {
+      el.innerHTML = '<p>Produk tidak ditemukan. <a href="index.html">Kembali</a></p>';
+    } else {
+      const stokTersedia = produk.stock.filter(s => s.status === 'available').length;
+      el.innerHTML = `
+        <a href="index.html" class="back-link">← Kembali ke katalog</a>
+        <div class="detail-wrap">
+          <div class="detail-img">${produk.emoji}</div>
+          <div class="detail-info">
+            <span class="badge">${produk.kategori}</span>
+            <h1>${produk.judul}</h1>
+            <p class="seller">Penjual: <strong>${produk.penjual}</strong> ✅</p>
+            <p class="price-big">Rp ${produk.harga.toLocaleString('id-ID')}</p>
+            <p>Stok tersedia: <strong>${stokTersedia}</strong></p>
+            <p class="desc">${produk.deskripsi}</p>
+            <button class="btn btn-primary btn-lg" ${stokTersedia === 0 ? 'disabled' : ''}>
+              ${stokTersedia === 0 ? 'Stok Habis' : 'Beli Sekarang (Escrow)'}
+            </button>
+            <p class="note">🔒 Dana ditahan platform sampai akun terverifikasi pembeli.</p>
+          </div>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
